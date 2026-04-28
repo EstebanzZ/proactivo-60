@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-primary: 'Montserrat', 'Trebuchet MS', sans-serif;
+  --font-secondary: 'Open Sans', 'Trebuchet MS', sans-serif;
+  --color-dark-green: #145d28;
+  --color-soft-green: #8bb792;
+  --color-accent-green: #e1f8e3;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+
+}
