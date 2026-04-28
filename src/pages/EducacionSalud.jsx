@@ -3,7 +3,7 @@ import BackHomeButton from '../components/BackHomeButton'
 function EducacionSalud() {
   return (
      <>
-      <section className=" bg-white px-4 py-6 sm:px-12 sm:py-12">
+      <section className=" max-w-5xl mx-auto mt-18 px-4 py-6 sm:px-7 sm:py-8 sm:mt-18 mb-12">
         <div className="">
           <h2
             className="m-0 text-[1.8rem] leading-tight text-dark-green font-primary font-bold sm:text-[2.2rem]"

@@ -120,10 +120,14 @@ const dias = [
 function Ejercicios() {
   return (
     <>
-      <section className="max-w-5xl mx-auto px-4 py-6 sm:px-7 sm:py-8">
+      <section className="max-w-5xl mx-auto mt-18 px-4 py-6 sm:px-7 sm:py-8 sm:mt-18 mb-12">
         <h2 className="m-0 text-[1.8rem] leading-tight text-dark-green font-primary font-bold sm:text-[2.2rem]">
           Ejercicios
         </h2>
+
+        <p className="mt-3 max-w-3xl text-[1.05rem] leading-relaxed text-black font-secondary sm:text-[1.1rem]">
+          Descubre rutinas guiadas diseñadas específicamente para mejorar tu movilidad, fuerza y equilibrio. Cada día presenta ejercicios progresivos que puedes realizar cómodamente, adaptados a tu ritmo y necesidades. Sigue los pasos detallados y disfruta de los beneficios de mantenerte activo.
+        </p>
 
         <div className="mt-10 space-y-8">
           {dias.map((dia) => (

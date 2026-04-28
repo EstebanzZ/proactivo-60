@@ -1,28 +1,31 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import Ejercicios from './pages/Ejercicios'
 import Autocuidado from './pages/Autocuidado'
 import PrevencionCaidas from './pages/PrevencionCaidas'
 import EducacionSalud from './pages/EducacionSalud'
 
-function App() {
-  const [navVisible, setNavVisible] = useState(false)
+function ScrollToTop() {
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    const onScroll = () => {
-      setNavVisible(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    window.scrollTo(0, 0)
+  }, [pathname])
 
+  return null
+}
+
+function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen">
-        <Navbar visible={navVisible} />
-        <main className="">
+      <div className="min-h-screen flex flex-col overflow-x-hidden bg-white">
+        <Navbar />
+        <ScrollToTop />
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/ejercicios" element={<Ejercicios />} />
@@ -31,6 +34,7 @@ function App() {
             <Route path="/educacion-salud" element={<EducacionSalud />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </BrowserRouter>
   )
