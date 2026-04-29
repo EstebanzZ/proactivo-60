@@ -1,18 +1,38 @@
-# React + Vite
+# Proactivo-60
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pequeña SPA creada con React + Vite enfocada en prevención y autocuidado. proyecto creado para el area de fisioterapia de la USC.
 
-Currently, two official plugins are available:
+**Tecnologías**
+- React 19 + Vite
+- React Router
+- Tailwind CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Instalación**
 
-## React Compiler
+```bash
+npm install
+```
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+**Scripts útiles**
 
-Note: This will impact Vite dev & build performances.
+```bash
+npm run dev    # arranca el servidor de desarrollo (Vite)
+npm run build  # genera la build de producción
+npm run preview # previsualiza la build localmente
+npm run lint   # corre ESLint
+```
 
-## Expanding the ESLint configuration
+**Estructura principal**
+- [index.html](index.html#L1) — plantilla HTML principal
+- [src/main.jsx](src/main.jsx#L1) — entrada de la aplicación
+- [src/App.jsx](src/App.jsx#L1) — componente raíz
+- [src/pages](src/pages) — páginas: Home, Autocuidado, EducacionSalud, Ejercicios, PrevencionCaidas
+- [src/components](src/components) — componentes reutilizables (Navbar, Footer, BackHomeButton)
+- [public](public) — recursos estáticos
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+**Licencia**
+Este proyecto está bajo la Licencia MIT
+
+---
+
