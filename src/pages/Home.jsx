@@ -5,7 +5,7 @@ const shortcuts = [
   {
     to: '/ejercicios',
     title: 'Ejercicios',
-    description: "ejercicios sencillos y seguros que te ayudarán a mejorar tu movilidad, equilibrio y fuerza. Puedes realizarlos en casa, a tu ritmo y de forma segura.",
+    description: "Ejercicios sencillos y seguros que te ayudarán a mejorar tu movilidad, equilibrio y fuerza. Puedes realizarlos en casa, a tu ritmo y de forma segura.",
   },
   {
     to: '/autocuidado',

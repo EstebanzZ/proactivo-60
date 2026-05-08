@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import BackHomeButton from '../components/BackHomeButton'
 import dia1Ej1 from '../assets/ejercicios/dia1-1.png'
 import dia1Ej2 from '../assets/ejercicios/dia1-2.png'
@@ -11,6 +12,14 @@ import dia3Ej1 from '../assets/ejercicios/dia3-1.png'
 import dia3Ej2 from '../assets/ejercicios/dia3-2.png'
 import dia3Ej3 from '../assets/ejercicios/dia3-3.png'
 import dia3Ej4 from '../assets/ejercicios/dia3-4.png'
+import dia4Ej1 from '../assets/ejercicios/dia4-1.jpeg'
+import dia4Ej2 from '../assets/ejercicios/dia4-2.jpeg'
+import dia4Ej3 from '../assets/ejercicios/dia4-3.jpeg'
+import dia4Ej4 from '../assets/ejercicios/dia4-4.jpeg'
+import dia5Ej1 from '../assets/ejercicios/dia5-1.jpeg'
+import dia5Ej2 from '../assets/ejercicios/dia5-2.jpeg'
+import dia5Ej3 from '../assets/ejercicios/dia5-3.jpeg'
+import dia5Ej4 from '../assets/ejercicios/dia5-4.jpeg'
 
 const dias = [
   {
@@ -114,10 +123,86 @@ const dias = [
         imagen: dia3Ej4,
       },
     ],
+
   },
+  {
+    dia: 4,
+    titulo: 'Postura y control',
+    ejercicios: [
+      {
+        orden: 1,
+        nombre: 'Estiramiento de brazos',
+        paso1: 'Parate o sientate con la espalda recta',
+        paso2: 'Estira los brazos al frente y estiralos suavemente durante unos segundos',
+        imagen: dia4Ej1,
+      },
+      {
+        orden: 2,
+        nombre: 'Levantarse y sentarse de la silla: 8 repeticiones',
+        paso1: 'Siéntese en una silla con la espalda recta y los pies apoyados en el suelo.',
+        paso2: 'Levantate lentamente sin usar las manos y vuelve a sentarte despacio.',
+        imagen: dia4Ej2,
+      },
+      {
+        orden: 3,
+        nombre: 'Elevaciones de talones',
+        paso1: 'De pie, sostente en una silla.',
+        paso2: 'Eleva los talones quedando en puntas.',
+        imagen: dia4Ej3,
+      },
+      {
+        orden: 4,
+        nombre: 'Caminar en linea recta (Talon a punta)',
+        paso1: 'Coloca un pie delante del otro tocando talon con punta, manteniendo la mirada al frente.',
+        paso2: 'Avanza repitiendo lo mismo lentamente, ayudandote con los brazos para equilibrarte.',
+        imagen: dia4Ej4,
+      },
+    ],
+  },
+  {
+    dia: 5,
+    titulo: 'Resistencia y condicion',
+    ejercicios: [
+      {
+        orden: 1,
+        nombre: 'Mantenerse en un solo pie',
+        paso1: 'Parate detras de una silla y sujetala.',
+        paso2: 'Levante un pie y manten el equilibrio de 10 a 20 segundos.',
+        imagen: dia5Ej1,
+      },
+      {
+        orden: 2,
+        nombre: 'Elevacion de piernas (Sentado)',
+        paso1: 'Sientate recto en una silla con los pies apoyados.',
+        paso2: 'Levanta una pierna estirada, baja y cambia de lado.',
+        imagen: dia5Ej2,
+      },
+      {
+        orden: 3,
+        nombre: 'Flexion de brazos (Con botella)',
+        paso1: 'Sujeta una botella en cada mano con los brazos extendidos a los lados del cuerpo.',
+        paso2: 'Flexiona los brazos hacia los hombros y baja lentamente, repitiendo el movimiento.',
+        imagen: dia5Ej3,
+      },
+      {
+        orden: 4,
+        nombre: 'Empuje contra la pared',
+        paso1: 'Apoya las manos a la pared a la altura del pecho.',
+        paso2: 'Flexiona los brazos acercandote a la pared y luego empuja para volver.',
+        imagen: dia5Ej4,
+      },
+    ],
+  },
+
 ];
 
 function Ejercicios() {
+  const [openDay, setOpenDay] = useState(null)
+
+  const toggleDay = (dayNumber) => {
+    setOpenDay(openDay === dayNumber ? null : dayNumber)
+  }
+
   return (
     <>
       <section className="max-w-5xl mx-auto mt-18 px-4 py-6 sm:px-7 sm:py-8 sm:mt-18 mb-12">
@@ -129,53 +214,63 @@ function Ejercicios() {
           Descubre rutinas guiadas diseñadas específicamente para mejorar tu movilidad, fuerza y equilibrio. Cada día presenta ejercicios progresivos que puedes realizar cómodamente, adaptados a tu ritmo y necesidades. Sigue los pasos detallados y disfruta de los beneficios de mantenerte activo.
         </p>
 
-        <div className="mt-10 space-y-8">
+        <div className="mt-10 space-y-4">
           {dias.map((dia) => (
-            <div key={dia.dia} className="p-6 border border-soft-green rounded-2xl">
-              <div className="text-center mb-6">
-                <h3 className="text-[1.25rem] font-primary text-dark-green font-bold leading-relaxed sm:text-[1.5rem]">
-                  Día {dia.dia}
-                </h3>
-                <h4 className="text-[1rem] font-primary text-dark-green font-semibold mt-2 border-b border-soft-green pb-3">
-                  {dia.titulo}
-                </h4>
-              </div>
+            <div key={dia.dia} className="border border-soft-green rounded-2xl overflow-hidden">
+              <button
+                onClick={() => toggleDay(dia.dia)}
+                className="w-full p-6 flex items-center justify-between bg-white hover:bg-soft-green transition-colors"
+              >
+                <div className="text-left">
+                  <h3 className="text-[1.25rem] font-primary text-dark-green font-bold leading-relaxed sm:text-[1.5rem]">
+                    Día {dia.dia}
+                  </h3>
+                  <h4 className="text-[1rem] font-primary text-dark-green font-semibold mt-2">
+                    {dia.titulo}
+                  </h4>
+                </div>
+                <span className="text-dark-green text-[1.5rem] font-bold">
+                  {openDay === dia.dia ? '−' : '+'}
+                </span>
+              </button>
 
-              <div className="space-y-6">
-                {dia.ejercicios.map((ejercicio) => (
-                  <div key={ejercicio.orden} className="p-4">
-                    <div className="mb-4 text-center">
-                      <p className="text-[1.1rem] font-secondary text-dark-green leading-relaxed sm:text-[1.2rem]">
-                        <strong>{ejercicio.orden}. {ejercicio.nombre}</strong>
-                      </p>
-                    </div>
-
-                    <div className="flex justify-center mb-6">
-                      <img
-                        src={ejercicio.imagen}
-                        alt={`Día ${dia.dia} ejercicio ${ejercicio.orden}`}
-                        className="w-full max-w-md"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="text-center">
-                        <p className="text-[0.95rem] font-secondary text-black leading-relaxed">
-                          <strong>Paso 1:</strong> {ejercicio.paso1}
+              {openDay === dia.dia && (
+                <div className="p-6 bg-white border-t border-soft-green space-y-6">
+                  {dia.ejercicios.map((ejercicio) => (
+                    <div key={ejercicio.orden} className="p-4">
+                      <div className="mb-4 text-center">
+                        <p className="text-[1.1rem] font-secondary text-dark-green leading-relaxed sm:text-[1.2rem]">
+                          <strong>{ejercicio.orden}. {ejercicio.nombre}</strong>
                         </p>
                       </div>
 
-                      {ejercicio.paso2 ? (
+                      <div className="flex justify-center mb-6">
+                        <img
+                          src={ejercicio.imagen}
+                          alt={`Día ${dia.dia} ejercicio ${ejercicio.orden}`}
+                          className="w-full max-w-md"
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="text-center">
                           <p className="text-[0.95rem] font-secondary text-black leading-relaxed">
-                            <strong>Paso 2:</strong> {ejercicio.paso2}
+                            <strong>Paso 1:</strong> {ejercicio.paso1}
                           </p>
                         </div>
-                      ) : null}
+
+                        {ejercicio.paso2 ? (
+                          <div className="text-center">
+                            <p className="text-[0.95rem] font-secondary text-black leading-relaxed">
+                              <strong>Paso 2:</strong> {ejercicio.paso2}
+                            </p>
+                          </div>
+                        ) : null}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
